@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "target": "es5",
-    "outDir": "./dist/",
+    "outDir": "./dist",
     "sourceMap": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
@@ -10,9 +10,9 @@
     "module": "esnext",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
+    "checkJs": false,
     "jsx": "react"
   },
-  "include": ["./src/**/*"],
-  "exclude": ["node_modules", "./src/**/*.test.*", "./src/**/*.stories.*"]
+  "include": ["./src/**/*", "./src/custom.d.ts"],
+  "exclude": ["node_modules"]
 }

@@ -1,27 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { RootState } from 'reducers/reducers';
 
 import './score.scss';
 
-interface State {
+type Props = {
   score: number;
-}
+};
 
-class Score extends Component<{}, State> {
-  constructor (props) {
-    super(props);
+const Score: React.FC<Props> = (props) => (
+  <div className="score-container">
+    Score:
+    {props.score}
+  </div>
+);
 
-    this.state = {
-      score: 0
-    };
-  }
+const mapStateToProps = (state: RootState) => ({
+  score: state.game.score
+});
 
-  render () {
-    return (
-      <div className="score-container">
-        Score: {this.state.score}
-      </div>
-    );
-  }
-}
-
-export default Score;
+export default connect(mapStateToProps)(Score);

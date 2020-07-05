@@ -1,49 +1,41 @@
-import React, { Component, } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
-import { clickFrogAction } from '../../actions/actions';
+import { clickFrogAction } from 'actions/actions';
 
-import holeMask from 'assets/img/hole-mask.svg';
-
+// eslint-disable-next-line
+import holeMask from '../../assets/img/hole-mask.svg';
 import './hole.scss';
 
-interface Props {
-  id: number;
-  active: boolean;
-  dispatch: any;
-}
-export class Hole extends Component<Props> {
-  constructor (props) {
-    super(props);
-
-    this.frogClick = this.frogClick.bind(this);
-  }
-
-  frogClick () {
-    this.props.dispatch(clickFrogAction(this.props.id));
-  }
-
-  render () {
-    let frogClass = 'frog';
-
-    if (this.props.active) {
-      frogClass = 'frog up';
-    }
-
-    return (
-      <div className="hole-container">
-        <div className="hole">
-          <div className={frogClass} onClick={this.frogClick}></div>
-          <img src={holeMask} className='hole-mask' />
-        </div>
-      </div>
-    );
-  }
-}
-
-
-const mapStateToProps = () => {
-  return {};
+type DispatchProps = {
+  clickFrogAction: (id: number) => void;
 };
 
-export default connect(mapStateToProps)(Hole);
+type Props = {
+  active: boolean;
+  id: number;
+} & DispatchProps;
+
+const Hole: React.FC<Props> = (props) => {
+  let frogClass = 'frog';
+
+  if (props.active) {
+    frogClass = 'frog up';
+  }
+
+  return (
+    <div className="hole-container">
+      <div className="hole">
+        <div className={frogClass} onClick={() => props.clickFrogAction(props.id)} />
+        <img src={holeMask} alt="hole-mask" className="hole-mask" />
+      </div>
+    </div>
+  );
+};
+
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = {
+  clickFrogAction
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Hole);

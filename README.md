@@ -826,12 +826,6 @@ It helps reduce number of bugs and improve system maintanability. I would recomm
 using Typescript for projects that has to be maintained for extended period of time or
 go to production
 
-## Container and presentational components pattern
-
-Some times it makes sense to split your component onto presentational and contaidner parts.
-Container part would be responsible just for getting the data and presentational component would be responsible
-for just displaying the data. It potentially can make unit testing of application easier.
-
 ## Structuring for maintainability
 
 There are a **lot** of different opinions on this topic and you will see

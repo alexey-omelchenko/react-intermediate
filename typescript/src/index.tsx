@@ -1,25 +1,27 @@
+/* eslint-disable */
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import configureStore from './store';
+import { render } from 'react-dom';
+import { AppContainer } from 'react-hot-loader'; // eslint-disable-line import/no-extraneous-dependencies
+import App from 'app';
 
 import 'index.scss';
-import Homepage from 'components/homepage/homepage';
-import About from 'components/about/about';
-import Nav from 'components/nav/nav';
 
-const store = configureStore();
+const renderComponent = (Component) => {
+  render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    document.getElementById('app')
+  );
+};
 
-ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <div className="container-fluid">
-        <Nav />
-        <Route exact path="/" component={Homepage}/>
-        <Route path="/about" component={About}/>
-      </div>
-    </Router>
-  </Provider>,
-  document.getElementById('app')
-);
+renderComponent(App);
+
+// Webpack Hot Module Replacement API
+if (module.hot) {
+  // only ever in dev
+  module.hot.accept('./app', () => {
+    // eslint-disable-next-line global-require
+    renderComponent(require('./app').default);
+  });
+}

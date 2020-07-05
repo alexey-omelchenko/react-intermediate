@@ -1,0 +1,15 @@
+{
+  "catalyst-frontend": {
+    "name": "example",
+    "newFolder": true,
+    "buildType": "webpack",
+    "react": true,
+    "jest": true,
+    "typescript": false,
+    "bootstrap": true,
+    "storybook": false,
+    "src": "src",
+    "dist": "dist",
+    "ignoreNewFolderSettings": true
+  }
+}

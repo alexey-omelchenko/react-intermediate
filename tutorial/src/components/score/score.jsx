@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './score.scss';
 
 class Score extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -11,10 +11,11 @@ class Score extends Component {
     };
   }
 
-  render () {
+  render() {
     return (
       <div className="score-container">
-        Score: {this.state.score}
+        Score:
+        {this.state.score}
       </div>
     );
   }

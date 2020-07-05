@@ -4,7 +4,7 @@ import holeMask from 'assets/img/hole-mask.svg';
 import './hole.scss';
 
 class Hole extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -14,13 +14,13 @@ class Hole extends Component {
     this.toggleFrog = this.toggleFrog.bind(this);
   }
 
-  toggleFrog () {
-    this.setState({
-      frogActive: !this.state.frogActive
-    });
+  toggleFrog() {
+    this.setState((prevState) => ({
+      frogActive: !prevState.frogActive
+    }));
   }
 
-  render () {
+  render() {
     let frogClass = 'frog';
 
     if (this.state.frogActive) {
@@ -29,10 +29,12 @@ class Hole extends Component {
 
     return (
       <div className="hole-container">
-        <button onClick={this.toggleFrog}>ACTIVATE</button>
+        <button type="button" onClick={this.toggleFrog}>
+          ACTIVATE
+        </button>
         <div className="hole">
-          <div className={frogClass}></div>
-          <img src={holeMask} className='hole-mask' />
+          <div className={frogClass} />
+          <img src={holeMask} alt="hole-mask" className="hole-mask" />
         </div>
       </div>
     );

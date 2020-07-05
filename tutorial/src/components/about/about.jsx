@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class About extends Component {
-  render () {  
+  render() {
     return (
       <div>
         <div className="row mb-3">
@@ -12,7 +12,7 @@ class About extends Component {
         <div className="row">
           <div className="col">
             <p>
-              An example project for the 
+              An example project for the
               <a href="https://github.com/jenofdoom/react-intermediate">React Intermediate</a>
               training.
             </p>

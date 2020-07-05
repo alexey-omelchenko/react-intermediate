@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './controls.scss';
 
 class Controls extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -16,25 +16,22 @@ class Controls extends Component {
     this.startGame = this.startGame.bind(this);
   }
 
-  startGame () {
+  startGame() {
     this.setState({
       gameStartClass: '',
       gameInProgressClass: 'invisible',
       gameOverClass: 'hidden',
-      gameTimer: setTimeout(
-        () => {
-          this.setState({
-            gameStartClass: 'hidden',
-            gameInProgressClass: '',
-            gameOverClass: ''
-          });
-        },
-        20000
-      )
+      gameTimer: setTimeout(() => {
+        this.setState({
+          gameStartClass: 'hidden',
+          gameInProgressClass: '',
+          gameOverClass: ''
+        });
+      }, 20000)
     });
   }
 
-  render () {
+  render() {
     return (
       <div className="controls-container">
         <div className={this.state.gameStartClass}>
@@ -46,7 +43,9 @@ class Controls extends Component {
         </div>
 
         <div className={this.state.gameInProgressClass}>
-          <button className="btn btn-primary" onClick={this.startGame}>Start</button>
+          <button type="button" className="btn btn-primary" onClick={this.startGame}>
+            Start
+          </button>
         </div>
       </div>
     );

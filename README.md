@@ -199,7 +199,7 @@ holes with a new property, `active`:
 
 ```
 for (let i = 0; i < this.props.holeState.length; i++) {
-  holes.push(<Hole key={'hole-' + i} id={i} active={this.props.holeState[i]} />);
+  holes.push(<Hole key={`hole-${i}`} id={i} active={this.props.holeState[i]} />);
 }
 ```
 
@@ -810,9 +810,9 @@ examines HOCs in some detail.
 
 ## Functional Components
 
-There are two different ways you can write your components as functional or class.
-Functional components are usually simplier and hence easier to read and reuse.
-With class style components it's easier to use state and get access to some lifecycle methods.
+There are two different ways you can write your components as a functional or as a class.
+Functional components are usually used for simple components, where is class components
+better handle complex scenarios where lifecycle hooks are involved.
 
 ## React Hooks
 
@@ -822,7 +822,7 @@ without using class style components.
 ## Typescript
 
 Typescript is gain a lot of popularity and a lot of projects are switching to use it.
-It helps reduce number of bugs and improve system maintanability. I would recommend
+It helps reduce number of bugs and improve system maintainability. I would recommend
 using Typescript for projects that has to be maintained for extended period of time or
 go to production
 

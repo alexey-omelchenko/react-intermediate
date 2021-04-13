@@ -49,6 +49,8 @@ module.exports = {
         functions: 'ignore',
       },
     ],
+    'jsx-a11y/no-static-element-interactions': 0,
+    'jsx-a11y/click-events-have-key-events': 0,
     'import/no-named-as-default': 0,
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/extensions': 0,

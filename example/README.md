@@ -1,4 +1,4 @@
-# tutorial-typescript frontend
+# react-intermediate-tutorial
 
 ## Before you start
 

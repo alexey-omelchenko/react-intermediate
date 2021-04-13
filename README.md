@@ -206,9 +206,9 @@ make much sense in this case.
 We should also add in the missing types
 
 ```diff
-  interface Props {
-    holeState: boolean[];
-  }
++ interface Props {
++   holeState: boolean[];
++ }
 
 - const Homepage = (props) => {
 + const Homepage: React.FC<Props> = (props) => {

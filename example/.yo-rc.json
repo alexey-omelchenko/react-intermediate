@@ -1,6 +1,6 @@
 {
   "catalyst-frontend": {
-    "name": "tutorial-typescript",
+    "name": "react-intermediate-tutorial",
     "projectType": "react",
     "newFolder": true,
     "ignoreNewFolderSettings": true

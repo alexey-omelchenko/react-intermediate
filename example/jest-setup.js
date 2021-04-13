@@ -1,5 +1,4 @@
-// enzyme configuration
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+// jest setup goes here
+import '@testing-library/jest-dom';
 
-configure({ adapter: new Adapter() });
+jest.useFakeTimers();

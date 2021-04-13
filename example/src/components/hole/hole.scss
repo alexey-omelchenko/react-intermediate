@@ -1,6 +1,6 @@
-@import "base-styles/variables";
+@import 'base-styles/variables';
 
-.hole-container  {
+.hole-container {
   display: inline-block;
 }
 
@@ -22,7 +22,7 @@
     bottom: 0;
   }
 
-  .hole-mask  {
+  .hole-mask {
     width: 200px;
     height: 100px;
     position: absolute;
@@ -33,7 +33,7 @@
 }
 
 .frog {
-  background-color: green;
+  background-color: #004415;
   width: 150px;
   height: 100px;
   margin: 0 25px;
@@ -56,8 +56,8 @@
     background-color: #111;
     position: absolute;
     top: 0;
-    border: 4px solid green;
-    box-shadow: inset 0px 22px 3px -15px #fff, inset 0px -22px 3px -15px #fff;
+    border: 4px solid #004415;
+    box-shadow: inset 0 22px 3px -15px #fff, inset 0 -22px 3px -15px #fff;
   }
 
   &::before {

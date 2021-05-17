@@ -4,9 +4,4 @@ import App from 'App';
 
 import 'index.scss';
 
-render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('app')
-);
+render(<App />, document.getElementById('app'));

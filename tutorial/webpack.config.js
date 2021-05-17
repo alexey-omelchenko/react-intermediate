@@ -4,6 +4,8 @@ const autoprefixer = require('autoprefixer');
 const flexfixes = require('postcss-flexbugs-fixes');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const webpack = require('webpack');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -36,6 +38,9 @@ module.exports = {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader', // config in .tsconfig
+        options: {
+          plugins: [isDev && require.resolve('react-refresh/babel')].filter(Boolean),
+        },
       },
       {
         test: /\.scss$/,
@@ -83,14 +88,13 @@ module.exports = {
           context: path.resolve(__dirname, 'src'),
           files: '**/*.s?(a|c)ss',
         }),
+        isDev && new webpack.HotModuleReplacementPlugin(),
+        isDev && new ReactRefreshWebpackPlugin(),
       ]
     : [new MiniCssExtractPlugin()],
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.json', '.scss'],
 
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-    alias: {
-      'react-dom': '@hot-loader/react-dom',
-    },
   },
 };
